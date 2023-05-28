@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.db import models
 from django.urls import reverse
 from phone_field import PhoneField
 from PIL import Image
@@ -49,9 +49,9 @@ class Post(models.Model):
     topic = models.ManyToManyField(Section)
     caption = models.TextField(max_length=25500, blank=True)
     image = models.ImageField(upload_to="post_images/")
-    likes = models.ManyToManyField(User, blank=True)
+    likes = models.ManyToManyField(User, related_name='likes', blank=True)
     date_posted = models.DateTimeField(blank=True, auto_now_add=True)
-    author = models.ForeignKey('User', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.author.username}\'s Post- {self.title}'

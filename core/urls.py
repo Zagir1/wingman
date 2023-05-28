@@ -11,7 +11,11 @@ from core.views import (
     RegisterView,
     PostCreateView,
     PostUpdateView,
-    PostDeleteView
+    PostDeleteView,
+    delete_user,
+    delete_user_confirm,
+    profile,
+    post_like, delete_comment
 )
 
 app_name = 'core'
@@ -26,7 +30,12 @@ urlpatterns = [
     path('login/', LoginUser.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='core:home_page'), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
-    path('post_create/', PostCreateView.as_view(), name='post_create'),
-    path('post_update/<int:pk>', PostUpdateView.as_view(), name='post_update'),
-    path('post_delete/<int:pk>', PostDeleteView.as_view(), name='post_delete'),
+    path('delete_user/', delete_user, name='delete_user'),
+    path('delete_user/confirm/', delete_user_confirm, name='delete_confirm'),
+    path('post/create/', PostCreateView.as_view(), name='post_create'),
+    path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post_update'),
+    path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
+    path('profile/', profile, name='profile'),
+    path('post_like/', post_like, name='post_like'),
+    path('comment/<int:id>', delete_comment, name='delete_comment'),
 ]

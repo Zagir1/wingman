@@ -2,26 +2,128 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-        <title>Wingman</title>
-    </head>
+     <!--  <link rel="stylesheet" href="{% static 'css/style.css' %}" /> --> 
+  <title>WINGMAN</title>
+  <link rel="stylesheet" href="../static/css/main.css">
+  <link rel="stylesheet" href="../static/css/light.css" id="theme-link">
+</head>
+  <script type="text/javascript" src="../static/js/jquery-3.6.4.js"></script>
+</head>
+<body>
 
-    <body>
-        <header class="header">
-            <div class="container">
-            </div>
-        </header>
-        <main>
-            <div class="container">
-            </div>
-        </main>
-        <footer class="footer">
-            <div class="container">
-            </div>
-        </footer>
-    </body>
+  <div class="area" >
+    <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+    </ul>
+</div >
+  
+<div class="sidebar">
 
+
+
+  
+  <div class="sidebar_logo">
+    <a href="#"><img src="../static/images/logo.png" alt="Логотип"></a> <!--ссылка на home page -->
+  </div>
+
+  <button class="button_slide slide_left">☰<i class="fa-solid fa-bars"></i></button>
+
+  <div class="sidebar_header">
+    <i class="fa-solid fa-dragon fa-2x"></i>
+  </div>
+
+
+
+  <div class="sidebar_menu">
+
+
+    
+    <h3>Новости</h3>
+
+    <ul class="container" style="list-style-type: none">
+      <li class="menu">
+        <a href="#" class="sidebar_item">
+          <div class="sidebar_icon">
+            <i class="fa-solid fa-house"></i>
+          </div>
+          <h4 class="sidebar_title">Раздел 1</h4>
+        </a>
+        <ul class="dropdown hidden"   style="list-style-type: none" > 
+          <li><a class="sidebar_item" href="4">Пункт1</a></li> <!--ссылка на пункты обсуждений-->
+          <li><a class="sidebar_item" href="5">Пункт2</a></li>
+          <li><a class="sidebar_item" href="6">Пункт3</a></li>
+          <li><a class="sidebar_item" href="7">Пункт4</a></li>
+        </ul>
+      </li>
+
+      <li class="menu">
+        <a href="#" class="sidebar_item">
+          <div class="sidebar_icon">
+            <i class="fa-brands fa-steam"></i>
+          </div>
+          <h4 class="sidebar_title">Раздел 2</h4>
+        </a>
+        <ul class="dropdown hidden"  style="list-style-type: none"> 
+          <li><a class="sidebar_item" href="1">Пункт1</a></li> <!--ссылка на пункты обсуждений-->
+          <li><a class="sidebar_item" href="2">Пункт2</a></li>
+          <li><a class="sidebar_item" href="3">Пункт3</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <a href="11" class="sidebar_item"> <!--ссылка на раздел обсуждений-->
+          <div class="sidebar_icon">
+            <i class="fa-brands fa-playstation"></i>
+          </div>
+          <h4>Обсуждения</h4>
+        </a>
+      </li>
+      </a>
+    </ul>
+
+  </div>
+
+  <div class="theme-button" id="theme-button">
+      <label class="switch switch200">
+      <input type="checkbox">
+      <span class="slider slider200"></span>
+  </div>
+
+
+</div>
+
+<main>
+  <section>
+    <header class="header">
+      <h4 class="headtitle">WINGMAN</h4>
+      <div class="header-buttons">
+       <p class="header-button"><a href="login">Вход</p></a>  <!--ссылка на форму входа-->
+       <p class="header-button"><a href="register">Регистрация</p></a>  <!--ссылка на форму регистрации-->
+      </div>
+    </header>
+
+    <h1>Сказка колобок</h1>
+<p>
+
+</p>
+  
+  </section>
+</main>
+{% block content %}
+{% endblock %}
+<script src="../static/js/script.js"></script>
+
+</body>
 </html>
