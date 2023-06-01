@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 from django.contrib.auth.views import LogoutView
 from core.views import (
@@ -15,7 +17,8 @@ from core.views import (
     delete_user,
     delete_user_confirm,
     profile,
-    post_like, delete_comment
+    post_like,
+    delete_comment
 )
 
 app_name = 'core'
@@ -33,9 +36,9 @@ urlpatterns = [
     path('delete_user/', delete_user, name='delete_user'),
     path('delete_user/confirm/', delete_user_confirm, name='delete_confirm'),
     path('post/create/', PostCreateView.as_view(), name='post_create'),
-    path('post/<int:pk>/update/', PostUpdateView.as_view(), name='post_update'),
+    path('post_update/<int:pk>/', PostUpdateView.as_view(), name='post_update'),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name='post_delete'),
     path('profile/', profile, name='profile'),
     path('post_like/', post_like, name='post_like'),
     path('comment/<int:id>', delete_comment, name='delete_comment'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

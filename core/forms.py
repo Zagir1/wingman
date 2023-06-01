@@ -58,6 +58,8 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class ProfileUpdateForm(forms.ModelForm):
+    profile_image = forms.FileField(label="Изображение профиля", required=False)
+
     class Meta:
         model = Profile
         fields = ['profile_image']

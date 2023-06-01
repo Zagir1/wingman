@@ -1,4 +1,29 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
-
+    <h1>Профиль пользователя</h1>
+    <hr>
+        <div class="content-section">
+          <div class="media">
+            <img class="rounded-circle imgg"  src="{{ user.profile.profile_image.url }}">
+            <div class="media-body">
+              <h2 class="imgh">Имя пользователя: {{ user.username }}</h2>
+              <h2 class="imgh">Почтовый адрес пользователя: {{ user.email }}</h2>
+            </div>
+          </div>
+          <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Информация о профиле</legend>
+                    {{ uform|crispy }}
+                    {{ pform|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Обновить</button>
+                </div>
+            </form>
+        </div>
+<br><br><br><br><br><br>
 {% endblock %}
+
+

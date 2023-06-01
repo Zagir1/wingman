@@ -31,8 +31,8 @@ switchToggle.addEventListener("click", function () {
 });
 function ChangeTheme()
 {
-    let lightTheme = "../static/css/light.css";
-    let darkTheme = "../static/css/dark.css";
+    let lightTheme = "{% static 'css/light.css' %}";
+    let darkTheme = "{% static 'css/dark.css' %}";
 
     var currTheme = link.getAttribute("href");
     var theme = "";

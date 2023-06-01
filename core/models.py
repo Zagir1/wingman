@@ -52,6 +52,7 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='likes', blank=True)
     date_posted = models.DateTimeField(blank=True, auto_now_add=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    USERNAME_FIELD = 'username'
 
     def __str__(self):
         return f'{self.author.username}\'s Post- {self.title}'

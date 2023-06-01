@@ -1,20 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
-    {% for post in posts %}
-        <article class="media content-section">
-                  <img class="rounded-circle article-img" src="{{ post.author.profile.profile_image.url }}">
-                  <div class="media-body">
-                    <div class="article-metadata">
-                      <strong>{{ post.author }}</strong>
+<style>
+   hr {
+    border: none;
+    background-color: black;
+    color: black;
+    height: 2px;
+   }
+</style>
 
-                    </div>
-                    <p class="article-content">
-                      <img src="{{ post.image.url}}" style="width: 100%;">
-                      <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
-                    </p>
-                    <h2>{{ post.title }}</h2>
-                    <p class="article-content">{{ post.like_count }}  <i class="fa fa-heart fa-lg" style="color: red;" aria-hidden="true"></i></p>
-                  </div>
-        </article>
-    {% endfor %}
+<div class="topbar">
+    <h1>Список обсуждений</h1>
+</div>
+
+<p align="left">Кол-во обсуждений: {{ count }}</p>
+<hr>
+{% for post in posts %}
+<article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <p><strong>Автор обсуждения: {{ post.author }}</strong></p>
+              <p><strong>Название: {{ post.title  }}</strong></p>
+            </div>
+            <p class="article-content">
+              <small class="text-muted">Дата создания: {{ post.date_posted|date:"F d, Y" }}</small>
+            </p>
+            <p class="article-content">Понравилось: {{ post.like_count }}  <i class="fa fa-heart fa-lg" style="color: red;" aria-hidden="true"></i></p>
+          </div>
+</article>
+{% endfor %}
 {% endblock content %}
